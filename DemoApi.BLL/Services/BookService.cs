@@ -13,11 +13,8 @@ public class BookService : IBookService
         _bookRepository = bookRepository;
     }
 
-    private int NextId = 0;
-
     public void Add(Book book)
     {
-        book.Id = NextId++;
         _bookRepository.Add(book);
     }
 

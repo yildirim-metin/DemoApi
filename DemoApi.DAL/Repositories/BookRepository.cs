@@ -66,7 +66,7 @@ public class BookRepository
         command.Parameters.AddWithValue("@id", book.Id);
         command.Parameters.AddWithValue("@isbn", book.ISBN);
         command.Parameters.AddWithValue("@title", book.Title);
-        command.Parameters.AddWithValue("@description", book.Description);
+        command.Parameters.AddWithValue("@description", book.Description ?? (object)DBNull.Value);
         command.Parameters.AddWithValue("@release", book.Release);
 
         connection.Open();
@@ -87,7 +87,7 @@ public class BookRepository
         command.Parameters.AddWithValue("@id", id);
         command.Parameters.AddWithValue("@isbn", book.ISBN);
         command.Parameters.AddWithValue("@title", book.Title);
-        command.Parameters.AddWithValue("@description", book.Description);
+        command.Parameters.AddWithValue("@description", book.Description ?? (object)DBNull.Value);
         command.Parameters.AddWithValue("@release", book.Release);
 
         connection.Open();
@@ -116,8 +116,8 @@ public class BookRepository
             Id = (int)reader["Id"],
             ISBN = (string)reader["ISBN"],
             Title = (string)reader["Title"],
-            Description = (string)reader["Description"],
-            Release = (DateOnly)reader["Release"],
+            Description = reader["Description"] == DBNull.Value ? null : (string)reader["Description"],
+            Release = DateOnly.FromDateTime((DateTime)reader["Release"]),
         };
     }
 }

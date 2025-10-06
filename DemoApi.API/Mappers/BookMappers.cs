@@ -11,6 +11,9 @@ public static class BookMappers
         {
             Id = book.Id,
             ISBN = book.ISBN,
+            Title = book.Title,
+            Description = book.Description,
+            Release = book.Release,
         };
     }
 
@@ -25,6 +28,9 @@ public static class BookMappers
         {
             Id = bookDto.Id,
             ISBN = bookDto.ISBN,
+            Title = bookDto.Title,
+            Description = bookDto.Description,
+            Release = bookDto.Release,
         };
     }
 }
