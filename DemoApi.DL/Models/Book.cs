@@ -1,4 +1,4 @@
-namespace DemoApi.DAL.Models;
+namespace DemoApi.DL.Models;
 
 public class Book
 {

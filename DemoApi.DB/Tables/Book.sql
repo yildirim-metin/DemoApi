@@ -1,0 +1,8 @@
+CREATE TABLE [dbo].[Book]
+(
+  [Id] INT NOT NULL CONSTRAINT [PK_Id] PRIMARY KEY,
+  [ISBN] NVARCHAR(13) NOT NULL,
+  [Title] NVARCHAR(200) NOT NULL,
+  [Description] NVARCHAR(500),
+  [Release] DATE
+)

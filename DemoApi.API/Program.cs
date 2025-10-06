@@ -1,15 +1,21 @@
 using DemoApi.BLL.Services;
 using DemoApi.BLL.Services.Interfaces;
+using DemoApi.DAL.Repositories;
+using DemoApi.DAL.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+EnvironmentFileReader envReader = new();
+envReader.Load();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<BookRepository>();
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿using DemoApi.DAL.Models;
+﻿using DemoApi.DL.Models;
 
 namespace DemoApi.BLL.Services.Interfaces;
 
