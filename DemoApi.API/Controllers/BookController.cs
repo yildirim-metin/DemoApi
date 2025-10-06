@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DemoApi.API.Controllers;
 
+[ApiController]
+[Route("api/[controller]")]
 public class BookController : ControllerBase
 {
     private readonly IBookService _bookService;
@@ -50,7 +52,7 @@ public class BookController : ControllerBase
     public ActionResult Delete(int id)
     {
         _bookService.Delete(id);
-        
+
         return Accepted();
     }
 }
